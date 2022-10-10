@@ -1,5 +1,10 @@
 = Read-Only ResultSet
 
+image:https://img.shields.io/github/license/foxcapades/jdbc-ro-result-set[GitHub]
+image:https://img.shields.io/badge/mvn-central-blue[link="https://search.maven.org/artifact/io.foxcapades.lib/jdbc-ro-result-set"]
+image:https://img.shields.io/badge/docs-dokka-brightgreen[link]
+
+
 Provides a simple, thin wrapper around a `ResultSet` instance that blocks
 actions that mutate the state of the underlying instance.
 

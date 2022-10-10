@@ -1,0 +1,45 @@
+= Read-Only ResultSet
+
+Provides a simple, thin wrapper around a `ResultSet` instance that blocks
+actions that mutate the state of the underlying instance.
+
+Methods that are documented as mutating the state of a `ResultSet` will instead
+throw an `UnsupportedOperationException`.
+
+== Usage
+
+.build.gradle.kts
+[source, kotlin]
+----
+  implementation("io.foxcapades.lib:jdbc-ro-result-set:${version}")
+----
+
+
+.Example
+[source, kotlin]
+----
+import io.foxcapades.lib.jdbc.ro.ReadOnlyResultSet
+
+fun main() {
+  ...
+
+  val rawResultSet = ps.executeQuery()
+  val safeResultSet = ReadOnlyResultSet(rawResultSet)
+
+  while (rawResultSet.next()) {
+    someMethod(safeResultSet)
+  }
+
+  ...
+}
+----
+
+== Compatibility
+
+|===
+| Library Version | JDBC Version | JDK Version
+
+| v1.x.x
+| 4.3+
+| 9+
+|===
